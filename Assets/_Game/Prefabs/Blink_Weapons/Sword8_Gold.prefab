@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3107399885469700370}
   - component: {fileID: 183671856790170788}
   - component: {fileID: 8458341819415155949}
+  - component: {fileID: 5787679521363897480}
   m_Layer: 0
   m_Name: Sword8_Gold
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7440267791017676574}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,6 +83,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40287495, y: 0.1629203, z: 3.1544101}
   m_Center: {x: 0, y: 0, z: 0.591255}
+--- !u!114 &5787679521363897480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440267791017676574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 183671856790170788}
+  type: 1
+  id_Object: 0
+  name_Object: Sword8_Gold
+  lockObject: 0
 --- !u!1 &7619164452121421804
 GameObject:
   m_ObjectHideFlags: 0

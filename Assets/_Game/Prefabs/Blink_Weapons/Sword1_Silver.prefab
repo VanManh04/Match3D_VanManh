@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8678539473492950447}
   - component: {fileID: 3126109256963004884}
   - component: {fileID: 1490846166467634764}
+  - component: {fileID: 2912176670217031315}
   m_Layer: 0
   m_Name: Sword1_Silver
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3297210670471045025}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,6 +83,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40287495, y: 0.15700582, z: 3.0740948}
   m_Center: {x: 0, y: 0, z: 0.41573435}
+--- !u!114 &2912176670217031315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297210670471045025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3126109256963004884}
+  type: 1
+  id_Object: 0
+  name_Object: Sword1_Silver
+  lockObject: 0
 --- !u!1 &4433812769317795556
 GameObject:
   m_ObjectHideFlags: 0

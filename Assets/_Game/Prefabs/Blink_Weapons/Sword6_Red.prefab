@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4316786491888401410}
   - component: {fileID: 7605436126781024926}
   - component: {fileID: 6041264987616268907}
+  - component: {fileID: -2762715129884893367}
   m_Layer: 0
   m_Name: Sword6_Red
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9191661016488778839}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -165,3 +166,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40287495, y: 0.3586616, z: 3.1372194}
   m_Center: {x: 0, y: 0, z: 0.43}
+--- !u!114 &-2762715129884893367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191661016488778839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7605436126781024926}
+  type: 1
+  id_Object: 0
+  name_Object: Sword6_Red
+  lockObject: 0

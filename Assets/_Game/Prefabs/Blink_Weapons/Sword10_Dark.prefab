@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 8676545410096961203}
   - component: {fileID: 7768337180490847106}
   - component: {fileID: 7495688722681519888}
+  - component: {fileID: -1063515707782500175}
   m_Layer: 0
   m_Name: Sword10_Dark
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5982988770883524987}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -159,9 +160,26 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5031146, y: 0.13776603, z: 3.1078792}
   m_Center: {x: -0.050119802, y: 0, z: 0.76216465}
+--- !u!114 &-1063515707782500175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982988770883524987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 7768337180490847106}
+  type: 1
+  id_Object: 0
+  name_Object: Sword10_Dark
+  lockObject: 0

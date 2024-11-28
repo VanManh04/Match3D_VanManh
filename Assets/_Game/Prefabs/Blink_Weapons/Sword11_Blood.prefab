@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6052362821377717395}
   - component: {fileID: 8945721752707878188}
   - component: {fileID: 37101803001935883}
+  - component: {fileID: -609903546796621157}
   m_Layer: 0
   m_Name: Sword11_Blood
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6457842424413876030}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,6 +83,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.43800807, y: 0.18736756, z: 3.0847619}
   m_Center: {x: 0.00539878, y: 0, z: 0.51641566}
+--- !u!114 &-609903546796621157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457842424413876030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8945721752707878188}
+  type: 1
+  id_Object: 0
+  name_Object: Sword11_Blood
+  lockObject: 0
 --- !u!1 &6459922968974282281
 GameObject:
   m_ObjectHideFlags: 0

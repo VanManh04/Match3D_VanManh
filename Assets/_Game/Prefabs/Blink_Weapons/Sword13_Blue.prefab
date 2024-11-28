@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1844852617843488845}
   - component: {fileID: 1393671385832940057}
   - component: {fileID: 449787370147772256}
+  - component: {fileID: -6616446740870909488}
   m_Layer: 0
   m_Name: Sword13_Blue
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4133175350425172166}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -82,6 +83,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4654432, y: 0.17226532, z: 2.9975126}
   m_Center: {x: 0.017149478, y: 0, z: 0.44650203}
+--- !u!114 &-6616446740870909488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133175350425172166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1393671385832940057}
+  type: 1
+  id_Object: 0
+  name_Object: Sword13_Blue
+  lockObject: 0
 --- !u!1 &5721262189467992185
 GameObject:
   m_ObjectHideFlags: 0
