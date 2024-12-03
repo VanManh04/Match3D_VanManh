@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    [SerializeField] private ItemType type;
-    public ItemType Type => type;
+    //[SerializeField] private ItemType type;
+    //public ItemType Type => type;
+
+    [SerializeField] private int id;
+    [SerializeField] private int levelUnlock;
 
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed = 2;
@@ -80,5 +83,11 @@ public class ItemObject : MonoBehaviour
     {
         //TODO: fix late
         gameObject.SetActive(false);
+    }
+
+    public int id_Object
+    {
+        get { return id; }
+        set { id = value; }
     }
 }

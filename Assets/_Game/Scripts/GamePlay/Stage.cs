@@ -18,8 +18,8 @@ public class Stage : MonoBehaviour
         else if (items.Count == 1)
         {
             //neu nhan item thu 2 thi di chuyen den vi tri thu 2
-
-            if (item.Type == items[0].Type)
+            //item.Type == items[0].Type ||
+            if (item.id_Object == items[0].id_Object)
             {
                 //check neu la cung loai thi collect
                 items.Add(item);
@@ -44,6 +44,9 @@ public class Stage : MonoBehaviour
 
     private void Collect()
     {
+        foreach (ItemObject item in items)
+            LevelManager.Ins.RemoveItemObject_ListItemInScene(item);
+
         items[0].Collect();
         items[1].Collect();
         items.Clear();
