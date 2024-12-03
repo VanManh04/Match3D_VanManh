@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
-    List<Item> items = new List<Item>();
+    List<ItemObject> items = new List<ItemObject>();
     [SerializeField] Transform point1, point2;
 
-    public void AddItem(Item item)
+    public void AddItem(ItemObject item)
     {
         if (items.Count == 0)
         {
@@ -36,7 +36,7 @@ public class Stage : MonoBehaviour
         }
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(ItemObject item)
     {
         items.Remove(item);
         item.SetKinematic(false);

@@ -8,13 +8,9 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         get
         {
             if (ins == null)
-            {
                 ins = GameObject.FindObjectOfType<T>();
-            }
             if (ins == null)
-            {
                 ins = new GameObject(nameof(T)).AddComponent<T>();
-            }
 
             return ins;
         }

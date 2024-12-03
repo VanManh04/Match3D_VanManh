@@ -30,7 +30,7 @@ public class LevelManager : Singleton<LevelManager>
 
     }
 
-    public void OnDone(Item item)
+    public void OnDone(ItemObject item)
     {
 
     }

@@ -7,7 +7,7 @@ public class LevelControl : MonoBehaviour
 {
     [SerializeField] LayerMask itemLayer, stageLayer, groundLayer;
     [SerializeField] Stage stage;
-    Item itemSelecting;
+    ItemObject itemSelecting;
 
     private void Update()
     {
@@ -46,13 +46,13 @@ public class LevelControl : MonoBehaviour
         }
     }
 
-    private Item GetSelectItem()
+    private ItemObject GetSelectItem()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow);
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, 100, itemLayer))
         {
-            return hit.collider.GetComponent<Item>();
+            return hit.collider.GetComponent<ItemObject>();
         }
         return null;
     }  
