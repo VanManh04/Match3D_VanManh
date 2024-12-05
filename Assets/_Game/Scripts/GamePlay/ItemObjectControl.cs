@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelControl : MonoBehaviour
+public class ItemObjectControl : MonoBehaviour
 {
     [SerializeField] LayerMask itemLayer, stageLayer, groundLayer;
     [SerializeField] Stage stage;
@@ -8,6 +8,9 @@ public class LevelControl : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Ins.gameState != GameState.GamePlay)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             itemSelecting = GetSelectItem();
@@ -27,7 +30,9 @@ public class LevelControl : MonoBehaviour
         {
             if (itemSelecting != null)
             {
+                itemSelecting.ResetLocaScale();
                 Stage stage = GetStage();
+
                 if (stage != null)
                     stage.AddItem(itemSelecting);
                 else

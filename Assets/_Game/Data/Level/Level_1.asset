@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9822b90b7102d45a562b4e94403e9a, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  countCupleObject: 5
-  timer: 1
-  items:
-  - {fileID: 4622104915884647721, guid: 9f798985c6cddd742b68e0d37a45ecae, type: 3}
+  countCupleObject: 4
+  timer: 22
+  listItems: {fileID: 11400000, guid: e5fb37a1af327f749a1b20dd9a1ddf1a, type: 2}
+  itemsUnlockIfWin:
+  - {fileID: 7077848059180939556, guid: aee29ca4814728040bdb4976c5135b43, type: 3}
+  - {fileID: -4591704876390099480, guid: d7e67ff5daed3494fbe6d1904e928589, type: 3}
+  - {fileID: 4206737515966402084, guid: f8ab3275b4dd1724ea174a727f8f3378, type: 3}
+  - {fileID: 1603213927833312483, guid: 6219205689b50234cb76cf2b3526b4fb, type: 3}
+  - {fileID: -6124121726005291593, guid: db2df38f4bc42154e9af77b52ba74f20, type: 3}
+  - {fileID: -8617713822687859031, guid: d74b089bebb949a43bbc45b6cefe79eb, type: 3}

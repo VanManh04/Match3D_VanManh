@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9822b90b7102d45a562b4e94403e9a, type: 3}
   m_Name: Level_5
   m_EditorClassIdentifier: 
-  countCupleObject: 5
-  timer: 5
-  items:
-  - {fileID: 4622104915884647721, guid: 9f798985c6cddd742b68e0d37a45ecae, type: 3}
-  - {fileID: 2865899252596965185, guid: 6694fa81c73ccca4db28461f9322dea0, type: 3}
-  - {fileID: 3727677378521107819, guid: bf835a05c27639d4299107612bd02a06, type: 3}
-  - {fileID: 891357324078662872, guid: fe50a243f83dccb4a8166e817d597bf0, type: 3}
+  countCupleObject: 25
+  timer: 55
+  listItems: {fileID: 11400000, guid: e5fb37a1af327f749a1b20dd9a1ddf1a, type: 2}
+  itemsUnlockIfWin:
+  - {fileID: 4177503351850471309, guid: 36589f066b25b1b4dab74eb18d6972fd, type: 3}
+  - {fileID: -6785430753866997754, guid: f6c4ffb4d9b01e6438aee492ee60e489, type: 3}
+  - {fileID: -2449486530353372864, guid: e52959e3043254b408ed3a5eca5b3a6d, type: 3}
+  - {fileID: 7055479714608867783, guid: 02ffcdcce496f7b429bc8890255da4a6, type: 3}
+  - {fileID: -4568714690215818251, guid: 1dbf24f8a486a5d43aa8eef186e3375d, type: 3}
+  - {fileID: 3676957684267999960, guid: 80b057e1cc878634488547feae408d42, type: 3}

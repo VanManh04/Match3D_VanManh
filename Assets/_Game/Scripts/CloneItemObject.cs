@@ -19,8 +19,6 @@ public class CloneItemObject : MonoBehaviour
 
     private void OnInit()
     {
-        countCupleObject = LevelManager.Ins.levelData.GetCountCupleObject();
-        listObjects = LevelManager.Ins.levelData.GetItems();
 
         int random_Index;
         ItemObject objectGame;
@@ -38,6 +36,12 @@ public class CloneItemObject : MonoBehaviour
             LevelManager.Ins.AddItemObject_ListItemInScene(objectGame);
         }
         Destroy(this.gameObject);
+    }
+
+    public void SetUpData(List<ItemObject> _listObjects,int _countCupleObject)
+    {
+        countCupleObject = _countCupleObject;
+        listObjects = _listObjects;
     }
 
     private Vector3 GetRandomPointInBox(BoxCollider box)

@@ -1,14 +1,14 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private int level;
-    [SerializeField] private List<Level> levels = new List<Level>();
+    public GameState gameState;
+    [SerializeField] public int GameLevel;
+    [field: SerializeField] public ItemObjectCollection ItemObjectCollection { get; private set; }
 
     void Start()
     {
-        LevelManager.Ins.levelData = levels[level];
+
     }
 
     void Update()
@@ -21,5 +21,8 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-
+    public void PauseGame(bool _bool)
+    {
+        Time.timeScale = _bool ? 0 : 1;
+    }
 }

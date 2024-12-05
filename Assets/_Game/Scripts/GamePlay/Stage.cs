@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class Stage : MonoBehaviour
 {
     List<ItemObject> items = new List<ItemObject>();
     [SerializeField] Transform point1, point2;
+
+    [SerializeField] private ParticleSystem VFXCollect;
 
     public void AddItem(ItemObject item)
     {
@@ -44,9 +47,19 @@ public class Stage : MonoBehaviour
 
     private void Collect()
     {
+        StartCoroutine(CollectItem());
+        items[0].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .5f);
+        items[1].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .5f);
+    }
+
+    private IEnumerator CollectItem()
+    {
         foreach (ItemObject item in items)
             LevelManager.Ins.RemoveItemObject_ListItemInScene(item);
 
+        yield return new WaitForSeconds(.5f);
+
+        VFXCollect.Play();
         items[0].Collect();
         items[1].Collect();
         items.Clear();

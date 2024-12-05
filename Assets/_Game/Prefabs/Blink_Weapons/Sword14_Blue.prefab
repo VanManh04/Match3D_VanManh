@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6592297586015398157
+--- !u!1 &2220135305354191284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4539970743086073258}
-  - component: {fileID: 8597853560576568612}
-  - component: {fileID: 4247809697763536907}
+  - component: {fileID: 207157845171476824}
+  - component: {fileID: 1136789784318598404}
+  - component: {fileID: 6052565672124575767}
   m_Layer: 0
   m_Name: Sword14_Blue
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4539970743086073258
+--- !u!4 &207157845171476824
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592297586015398157}
+  m_GameObject: {fileID: 2220135305354191284}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.4}
   m_LocalScale: {x: 1.3, y: 1.2999998, z: 1.2999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 8428012328090352492}
+  m_Father: {fileID: 5450046442113750718}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &8597853560576568612
+--- !u!33 &1136789784318598404
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592297586015398157}
+  m_GameObject: {fileID: 2220135305354191284}
   m_Mesh: {fileID: 3961813556567730997, guid: 5e3ece6a343a3f04fa7bc7a3c7ce9e02, type: 3}
---- !u!23 &4247809697763536907
+--- !u!23 &6052565672124575767
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6592297586015398157}
+  m_GameObject: {fileID: 2220135305354191284}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,7 +83,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8613663535458680379
+--- !u!1 &8079780096685591614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,40 +91,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8428012328090352492}
-  - component: {fileID: 3047691555270290950}
-  - component: {fileID: 4495643265640127552}
-  - component: {fileID: 6109801287523762782}
-  m_Layer: 0
+  - component: {fileID: 5450046442113750718}
+  - component: {fileID: 8530937929939357335}
+  - component: {fileID: 7649808206152271957}
+  - component: {fileID: 4177503351850471309}
+  m_Layer: 7
   m_Name: Sword14_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8428012328090352492
+--- !u!4 &5450046442113750718
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613663535458680379}
+  m_GameObject: {fileID: 8079780096685591614}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4539970743086073258}
+  - {fileID: 207157845171476824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3047691555270290950
+--- !u!54 &8530937929939357335
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613663535458680379}
+  m_GameObject: {fileID: 8079780096685591614}
   serializedVersion: 4
   m_Mass: 2
   m_Drag: 0
@@ -145,13 +145,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4495643265640127552
+--- !u!65 &7649808206152271957
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613663535458680379}
+  m_GameObject: {fileID: 8079780096685591614}
   m_Material: {fileID: 13400000, guid: be6230d9f68a07946a0743d3df387f29, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -166,20 +166,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.29010057, y: 0.11770724, z: 2.3708088}
   m_Center: {x: 0.0034403205, y: 0, z: 0.30315015}
---- !u!114 &6109801287523762782
+--- !u!114 &4177503351850471309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613663535458680379}
+  m_GameObject: {fileID: 8079780096685591614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa30ce2840805d34f829e12b4f5f0ca3, type: 3}
+  m_Script: {fileID: 11500000, guid: de0f11495afeb624e944ba8021512def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3047691555270290950}
-  type: 1
-  id_Object: 0
-  name_Object: Sword14_Blue
-  lockObject: 0
+  id: 0
+  rb: {fileID: 8530937929939357335}
+  speed: 20

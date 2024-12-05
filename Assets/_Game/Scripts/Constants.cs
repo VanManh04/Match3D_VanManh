@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Constants 
+public class Constants
 {
 
 }
@@ -20,4 +16,13 @@ public enum ItemType
     Item_8 = 8,
     Item_9 = 9,
     Item_10 = 10,
+}
+
+public enum GameState
+{
+    Menu,
+    GamePlay,
+    Pause,
+    Win,
+    Lose
 }
