@@ -60,14 +60,14 @@ public class Stage : MonoBehaviour
 
         VFXCollect = VFXs[Random.Range(0, VFXs.Count)];
         //add tranform thay v? trí VFX
-        items[0].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .2f);
-        items[1].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .2f);
+        items[0].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .3f);
+        items[1].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .3f);
     }
 
     private IEnumerator CollectItem()
     {
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3f);
 
         VFXCollect.Play();
         items[0].Collect();

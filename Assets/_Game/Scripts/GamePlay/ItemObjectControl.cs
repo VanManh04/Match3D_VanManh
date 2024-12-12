@@ -30,7 +30,7 @@ public class ItemObjectControl : MonoBehaviour
         {
             if (itemSelecting != null)
             {
-                itemSelecting.ResetLocaScale();
+                //itemSelecting.ResetLocaScale();
                 Stage stage = GetStage();
 
                 if (stage != null)

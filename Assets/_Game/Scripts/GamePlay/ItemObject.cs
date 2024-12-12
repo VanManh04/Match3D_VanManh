@@ -46,6 +46,7 @@ public class ItemObject : MonoBehaviour
     {
         float timeCount = 0;
         Vector3 startPoint = rb.position;
+        Vector3 startPointScale = transform.localScale;
         Quaternion startRot = rb.rotation;
 
         while (timeCount < time)
@@ -54,6 +55,7 @@ public class ItemObject : MonoBehaviour
             timeCount += Time.deltaTime;
             rb.position = Vector3.Lerp(startPoint, _scale, timeCount / time);
             rb.rotation = Quaternion.Lerp(startRot, targetRot, timeCount / time);
+            transform.localScale = Vector3.Lerp(startPointScale, Vector3.one, timeCount / time);
             yield return null;
         }
     }
@@ -61,7 +63,7 @@ public class ItemObject : MonoBehaviour
     public void OnSelect()
     {
         //bat dau select
-        StartCoroutine(IEScaleItem(Vector3.one * 1.2f, .5f));
+        StartCoroutine(IEScaleItem(Vector3.one * 1.2f, .2f));
         rb.useGravity = false;
     }
 

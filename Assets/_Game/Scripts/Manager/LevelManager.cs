@@ -27,13 +27,13 @@ public class LevelManager : Singleton<LevelManager>
         PlayerPrefs.SetInt("GameLevel", 0);
     }
 
-    public void OnInit(bool _autoLoadLevel)
+    public void OnInit(bool _loadNextLevel)
     {
         endGame = false;
         stage.OnInit();
         ClearItemInScene();
 
-        LoadLevel(_autoLoadLevel);
+        LoadLevel(_loadNextLevel);
         CloneObject();
 
         print(GameLevel);
