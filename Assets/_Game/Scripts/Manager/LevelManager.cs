@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    [Header("Stage")]
+    [SerializeField] private Stage stage;
+    private bool endGame;
+
     [Header("Game Level")]
     [SerializeField] private int GameLevel;
     [SerializeField] private List<LevelData> levelDataList = new List<LevelData>();
@@ -12,48 +15,40 @@ public class LevelManager : Singleton<LevelManager>
 
     [Header("Clone Object")]
     [SerializeField] private List<ItemObject> itemInScenes = new List<ItemObject>();
-    [SerializeField] private CloneItemObject cloneItemObjectPrefabs;
-
-    public bool EndGame;
+    [Space]
+    [SerializeField] private int countCupleObject;
+    [SerializeField] private List<ItemObject> listObjects;
+    [SerializeField] private BoxCollider boxRandomSpawn;
 
     [ContextMenu("Reset Level")]
-    public void ResetLevel() => PlayerPrefs.SetInt("GameLevel", 0);
-
-    public void OnInit()
+    public void ResetLevel()
     {
-        EndGame = false;
-        Time.timeScale = 1;
-        GameLevel = PlayerPrefs.GetInt("GameLevel");
-        if (GameLevel >= levelDataList.Count)
-        {
-            Debug.LogError("Count Level Data Null -> Reset Level");
-            GameLevel = 0;
-        }
-        levelData = levelDataList[GameLevel];
-        GameManager.Ins.GameLevel = GameLevel;
+        levelDataList[0].GetItemObjectCollection().ResetList();
+        PlayerPrefs.SetInt("GameLevel", 0);
+    }
 
-        timerLevel = levelData.GetTimerLevel();
-        Instantiate(cloneItemObjectPrefabs).SetUpData(levelData.GetItems(), levelData.GetCountCupleObject());
+    public void OnInit(bool _autoLoadLevel)
+    {
+        endGame = false;
+        stage.OnInit();
+        ClearItemInScene();
+
+        LoadLevel(_autoLoadLevel);
+        CloneObject();
+
         print(GameLevel);
     }
 
     private void Start()
     {
-        OnInit();
+        OnInit(true);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SceneManager.LoadScene(0);
-
-        if (Input.GetKeyDown(KeyCode.K))
-            UIManager.Ins.UIMenu();
-        if (Input.GetKeyDown(KeyCode.J))
-            UIManager.Ins.UIGamePlay();
-
-        if (EndGame)
+        if (endGame)
             return;
+
         timerLevel -= Time.deltaTime;
         UIManager.Ins.SetTextTimerLevel(timerLevel);
 
@@ -64,62 +59,154 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    public void OnStart()
-    {
-
-    }
-
-    public void OnPlay()
-    {
-
-    }
-
-    private void OnLoad(int level)
-    {
-
-    }
-
     public void OnWin()
     {
         Debug.Log("Win_Game");
-        //UIManager.Ins.UIWinGame();
-        //Time.timeScale = 0;
-        EndGame = true;
+        endGame = true;
+        UIManager.Ins.UIWinGame();
         GameLevel++;
         PlayerPrefs.SetInt("GameLevel", GameLevel);
+        GameManager.Ins.ItemsLevel.SetCanAddItem(true);
+    }
 
+    public void OnLose()
+    {
+        Debug.Log("Lose_Game");
+        endGame = true;
+        UIManager.Ins.UILoseGame();
+
+        PlayerPrefs.SetInt("GameLevel", GameLevel);
+    }
+
+    private void AddNewItemUnlockLevel()
+    {
         if (levelData.GetListItemUnlockIfWin().Count > 0)
         {
             foreach (ItemObject itemObject in levelData.GetListItemUnlockIfWin())
             {
-                GameManager.Ins.ItemObjectCollection.AddUnLock(itemObject);
+                GameManager.Ins.ItemsLevel.AddUnLock(itemObject);
                 print("Unlock " + itemObject.name);
             }
         }
         else
             print("No Item");
     }
-
-    public void OnLose()
-    {
-        Debug.Log("Lose_Game");
-        //UIManager.Ins.UILoseGame();
-        //Time.timeScale = 0;
-        EndGame = true;
-        PlayerPrefs.SetInt("GameLevel", GameLevel);
-    }
-
-    public void OnDone(ItemObject item)
-    {
-
-    }
-
-    public void AddItemObject_ListItemInScene(ItemObject items) => itemInScenes.Add(items);
     public void RemoveItemObject_ListItemInScene(ItemObject items)
     {
         itemInScenes.Remove(items);
         if (itemInScenes.Count <= 0)
-            OnWin();
+            Invoke(nameof(OnWin), .7f);
     }
 
+
+    #region Clone Object
+    private void SetUpDataCloneObjectLevel()
+    {
+        countCupleObject = levelData.GetCountCupleObject();
+        listObjects = levelData.GetItems();
+    }
+    private void CloneObject()
+    {
+        SetUpDataCloneObjectLevel();
+
+        int random_Index;
+        ItemObject objectGame;
+
+        for (int i = 0; i < countCupleObject; i++)
+        {
+            random_Index = Random.Range(0, listObjects.Count);
+
+            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Quaternion.identity);
+            objectGame.id_Object = random_Index;
+            itemInScenes.Add(objectGame);
+
+            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Quaternion.identity);
+            objectGame.id_Object = random_Index;
+            itemInScenes.Add(objectGame);
+        }
+    }
+
+    private Vector3 GetRandomPointInBox(BoxCollider box)
+    {
+        Vector3 center = box.center + box.transform.position;
+        Vector3 size = box.size;
+        Vector3 randomPosition = new Vector3(
+            Random.Range(center.x - size.x / 2, center.x + size.x / 2),
+            //Random.Range(center.y - size.y / 2, center.y + size.y / 2),
+            center.y,
+            Random.Range(center.z - size.z / 2, center.z + size.z / 2)
+        );
+        return randomPosition;
+    }
+
+    #endregion
+
+    #region LoadLevel
+    private void LoadLevel(bool _autoLoadLevel)
+    {
+        if (_autoLoadLevel)
+        {
+            GameLevel = PlayerPrefs.GetInt("GameLevel");
+            if (GameManager.Ins.ItemsLevel.GetCanAddItem())
+            {
+                AddNewItemUnlockLevel();
+                GameManager.Ins.ItemsLevel.SetCanAddItem(false);
+            }
+        }
+        if (GameLevel >= levelDataList.Count)
+        {
+            Debug.LogWarning("Count Level Data Null -> Reset Level");
+            ResetLevel();
+            GameLevel = 0;
+        }
+        levelData = levelDataList[GameLevel];
+        GameManager.Ins.GameLevel = GameLevel;
+
+        timerLevel = levelData.GetTimerLevel();
+        UIManager.Ins.SetTextLevel(GameLevel);
+    }
+
+    #endregion
+
+
+    public void NextLevel()
+    {
+        UIManager.Ins.UIGamePlay();
+
+        OnInit(true);
+    }
+
+
+    public void RePlay()
+    {
+        GameLevel--;
+        GameManager.Ins.GameLevel = GameLevel;
+
+        UIManager.Ins.UIGamePlay();
+
+        OnInit(false);
+    }
+
+    public void Continue()
+    {
+        UIManager.Ins.UIGamePlay();
+    }
+
+    public void PlayAgain()
+    {
+        UIManager.Ins.UIGamePlay();
+
+        OnInit(false);
+    }
+
+    private void ClearItemInScene()
+    {
+        if (itemInScenes.Count > 0)
+        {
+            foreach (ItemObject item in itemInScenes)
+                Destroy(item.gameObject);
+
+            itemInScenes.Clear();
+        }
+    }
 }

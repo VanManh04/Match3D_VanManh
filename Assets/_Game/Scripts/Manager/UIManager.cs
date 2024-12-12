@@ -11,6 +11,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject Lose;
 
 
+    [Header("Game Level")]
+    [SerializeField] private TextMeshProUGUI Level;
     [SerializeField] private TextMeshProUGUI textTimerLevel;
 
     private void Start()
@@ -19,6 +21,7 @@ public class UIManager : Singleton<UIManager>
     }
 
     public void SetTextTimerLevel(float timer) => textTimerLevel.SetText(timer.ToString());
+    public void SetTextLevel(int level) => Level.SetText("Level: " + level.ToString());
 
     public void SwitchTo(GameObject _menu)
     {
@@ -44,28 +47,33 @@ public class UIManager : Singleton<UIManager>
     public void UIMenu()
     {
         SwitchTo(Menu);
-        GameManager.Ins.gameState = GameState.Menu;
+        GameManager.Ins.ChangeState(GameState.Menu);
     }
     public void UIGamePlay()
     {
         SwitchTo(GamePlay);
-        GameManager.Ins.gameState = GameState.GamePlay;
+        GameManager.Ins.ChangeState(GameState.GamePlay);
     }
     public void UIPause()
     {
         SwitchTo(Pause);
-        GameManager.Ins.gameState = GameState.Pause;
+        GameManager.Ins.ChangeState(GameState.Pause);
     }
 
     public void UIWinGame()
     {
         SwitchTo(Win);
-        GameManager.Ins.gameState = GameState.Win;
+        GameManager.Ins.ChangeState(GameState.Win);
     }
 
     public void UILoseGame()
     {
         SwitchTo(Lose);
-        GameManager.Ins.gameState = GameState.Lose;
+        GameManager.Ins.ChangeState(GameState.Lose);
     }
+
+    public void RePlay() => LevelManager.Ins.RePlay();
+    public void NextLevel() => LevelManager.Ins.NextLevel();
+    public void PlayAgain() => LevelManager.Ins.PlayAgain();
+    public void Continue() => LevelManager.Ins.Continue();
 }

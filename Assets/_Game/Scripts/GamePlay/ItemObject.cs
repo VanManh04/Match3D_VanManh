@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    //[SerializeField] private ItemType type;
-    //public ItemType Type => type;
+    [SerializeField] private ItemType type;
+    public ItemType Type => type;
 
     [SerializeField] private int id;
 
@@ -70,7 +70,7 @@ public class ItemObject : MonoBehaviour
         rb.useGravity = true;
     }
 
-    public void ResetLocaScale()=> StartCoroutine(IEScaleItem(Vector3.one, .5f));
+    public void ResetLocaScale()=> StartCoroutine(IEScaleItem(Vector3.one, .2f));
 
     private IEnumerator IEScaleItem(Vector3 _scale,float time)
     {
@@ -99,7 +99,8 @@ public class ItemObject : MonoBehaviour
     internal void Collect()
     {
         //TODO: fix late
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public int id_Object

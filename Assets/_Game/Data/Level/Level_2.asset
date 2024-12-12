@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: 
   countCupleObject: 10
-  timer: 22
+  timer: 33
   listItems: {fileID: 11400000, guid: e5fb37a1af327f749a1b20dd9a1ddf1a, type: 2}
   itemsUnlockIfWin:
   - {fileID: -7191415035355706627, guid: 5676bdababfc9c144824b1050aa60674, type: 3}

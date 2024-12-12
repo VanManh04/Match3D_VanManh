@@ -8,7 +8,7 @@ public class ItemObjectControl : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Ins.gameState != GameState.GamePlay)
+        if (GameManager.Ins.GetGameState() != GameState.GamePlay)
             return;
 
         if (Input.GetMouseButtonDown(0))
