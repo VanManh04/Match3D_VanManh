@@ -116,11 +116,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             random_Index = Random.Range(0, listObjects.Count);
 
-            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Quaternion.identity);
+            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Random.rotation);
             objectGame.id_Object = random_Index;
             itemInScenes.Add(objectGame);
 
-            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Quaternion.identity);
+            objectGame = Instantiate(listObjects[random_Index], GetRandomPointInBox(boxRandomSpawn), Random.rotation);
             objectGame.id_Object = random_Index;
             itemInScenes.Add(objectGame);
         }
@@ -204,7 +204,8 @@ public class LevelManager : Singleton<LevelManager>
         if (itemInScenes.Count > 0)
         {
             foreach (ItemObject item in itemInScenes)
-                Destroy(item.gameObject);
+                if (item != null)
+                    Destroy(item.gameObject);
 
             itemInScenes.Clear();
         }

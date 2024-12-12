@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countCupleObject: 20
   timer: 44
-  listItems: {fileID: 11400000, guid: e5fb37a1af327f749a1b20dd9a1ddf1a, type: 2}
+  listItemClones: {fileID: 11400000, guid: e5fb37a1af327f749a1b20dd9a1ddf1a, type: 2}
   itemsUnlockIfWin:
   - {fileID: 7221014579080148975, guid: c5bf61c5ffb29af47b24142811345e37, type: 3}
   - {fileID: 8014603014318006350, guid: 9ad0600b8acd04641b634bf2ed932dd2, type: 3}

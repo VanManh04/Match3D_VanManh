@@ -7,7 +7,6 @@ public class ItemObjectCollection : ScriptableObject
     private bool canAddItem;
     //s? d?ng enum thay cho prefabs
     [SerializeField] private List<ItemObject> items = new List<ItemObject>();
-    [SerializeField] private List<ItemType> itemTypes = new List<ItemType>();
 
     public void AddUnLock(ItemObject item) => items.Add(item);
     public List<ItemObject> GetListItemClone()=> items;

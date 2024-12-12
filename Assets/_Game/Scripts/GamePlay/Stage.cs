@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stage : MonoBehaviour
 {
     List<ItemObject> items = new List<ItemObject>();
+    [SerializeField] private LayerMask ground;
     [SerializeField] Transform point1, point2;
 
     [SerializeField] private List<ParticleSystem> VFXs;
@@ -25,7 +26,11 @@ public class Stage : MonoBehaviour
             if (item.id_Object == items[0].id_Object)
             {
                 //check neu la cung loai thi collect
+
                 items.Add(item);
+                //items[0].gameObject.layer = ground;
+                //items[1].gameObject.layer = ground;
+                
                 item.OnMove(point2.position, Quaternion.identity, 0.2f);
                 item.SetKinematic(true);
 
@@ -55,8 +60,8 @@ public class Stage : MonoBehaviour
 
         VFXCollect = VFXs[Random.Range(0, VFXs.Count)];
         //add tranform thay v? trí VFX
-        items[0].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .5f);
-        items[1].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .5f);
+        items[0].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .2f);
+        items[1].OnMove(VFXCollect.gameObject.transform.position, Quaternion.identity, .2f);
     }
 
     private IEnumerator CollectItem()
